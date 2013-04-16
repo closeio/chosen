@@ -486,14 +486,18 @@ Copyright (c) 2011 by Harvest
       this.is_disabled = this.form_field_jq[0].disabled;
       if (this.is_disabled) {
         this.container.addClass('chzn-disabled');
-        this.search_field[0].disabled = true;
+        if (this.search_field && this.search_field.length) {
+            this.search_field[0].disabled = true;
+        }
         if (!this.is_multiple) {
           this.selected_item.unbind("focus", this.activate_action);
         }
         return this.close_field();
       } else {
         this.container.removeClass('chzn-disabled');
-        this.search_field[0].disabled = false;
+        if (this.search_field && this.search_field.length) {
+            this.search_field[0].disabled = false;
+        }
         if (!this.is_multiple) {
           return this.selected_item.bind("focus", this.activate_action);
         }
