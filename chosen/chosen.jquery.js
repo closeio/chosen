@@ -465,9 +465,9 @@ Copyright (c) 2011 by Harvest
       this.search_field.keyup(function(evt) {
         _this.keyup_checker(evt);
       });
-      this.search_field.on('input', $.proxy(function(evt) {
-          this.results_search();
-      }, this));
+      this.search_field.on('input', function(evt) {
+        _this.results_search();
+      });
       this.search_field.keydown(function(evt) {
         _this.keydown_checker(evt);
       });
@@ -490,7 +490,7 @@ Copyright (c) 2011 by Harvest
       if (this.is_disabled) {
         this.container.addClass('chzn-disabled');
         if (this.search_field && this.search_field.length) {
-            this.search_field[0].disabled = true;
+          this.search_field[0].disabled = true;
         }
         if (!this.is_multiple) {
           this.selected_item.unbind("focus", this.activate_action);
@@ -499,7 +499,7 @@ Copyright (c) 2011 by Harvest
       } else {
         this.container.removeClass('chzn-disabled');
         if (this.search_field && this.search_field.length) {
-            this.search_field[0].disabled = false;
+          this.search_field[0].disabled = false;
         }
         if (!this.is_multiple) {
           return this.selected_item.bind("focus", this.activate_action);
