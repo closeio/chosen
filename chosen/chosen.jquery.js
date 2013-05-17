@@ -465,6 +465,9 @@ Copyright (c) 2011 by Harvest
       this.search_field.keyup(function(evt) {
         _this.keyup_checker(evt);
       });
+      this.search_field.on('input', $.proxy(function(evt) {
+          this.results_search();
+      }, this));
       this.search_field.keydown(function(evt) {
         _this.keydown_checker(evt);
       });
